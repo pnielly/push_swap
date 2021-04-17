@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 12:47:03 by pnielly           #+#    #+#             */
-/*   Updated: 2021/04/12 18:50:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/14 22:28:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct		s_list
 {
@@ -23,6 +24,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_lstcopy(t_list **a, t_list **b);
+void				ft_lst_rm_one(t_list **a, int position);
 int					ft_has_duplicates(char *s);
 int					ft_has_dup_tab(char **s);
 int					ft_isempty(char *s);
