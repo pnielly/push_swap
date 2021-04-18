@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 20:13:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 21:03:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	elaborate(t_list **a, t_list **b)
 	middle = ft_lstsize(*a) / 2;
 	ft_lstcopy(a, &tmp);
 	min = find_n_min(tmp, middle);
-	while (!(ft_is_solved(*a, 0) && b_is_solved(*b, *a)))
+	while (!(ft_is_solved(*a, 0) && b_is_solved(*b, *a)
+		&& ft_atoi((*a)->content) > ft_atoi((*b)->content)))
 	{
 		while (ft_atoi((*a)->content) <= min)
 			pb(a, b, 1);
