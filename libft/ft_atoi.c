@@ -6,13 +6,13 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 10:24:52 by pnielly           #+#    #+#             */
-/*   Updated: 2021/04/14 22:15:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 20:21:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_sign(char c)
+static int	ft_sign(char c)
 {
 	if (c == '-')
 		return (-1);
@@ -20,7 +20,7 @@ static int		ft_sign(char c)
 		return (1);
 }
 
-int				ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
@@ -29,9 +29,9 @@ int				ft_atoi(const char *str)
 	i = 0;
 	res = 0;
 	sign = 1;
-	while ((str[i] == '\f' || str[i] == '\t' || str[i] == '\n' ||
-				str[i] == '\r' || str[i] == '\v' ||
-				str[i] == ' ') && str[i] != '\0')
+	while ((str[i] == '\f' || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v'
+			|| str[i] == ' ') && str[i] != '\0')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -46,18 +46,18 @@ int				ft_atoi(const char *str)
 	return (sign * res);
 }
 
-long				ft_atoi_long(const char *str)
+long	ft_atoi_long(const char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	res;
 
 	i = 0;
 	res = 0;
 	sign = 1;
-	while ((str[i] == '\f' || str[i] == '\t' || str[i] == '\n' ||
-				str[i] == '\r' || str[i] == '\v' ||
-				str[i] == ' ') && str[i] != '\0')
+	while ((str[i] == '\f' || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v'
+			|| str[i] == ' ') && str[i] != '\0')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

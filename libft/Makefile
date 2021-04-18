@@ -6,7 +6,7 @@
 #    By: pnielly <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/14 13:04:58 by pnielly           #+#    #+#              #
-#    Updated: 2021/04/14 20:48:05 by user42           ###   ########.fr        #
+#    Updated: 2021/04/18 11:02:11 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,21 +21,22 @@ HEADER = libft.h
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
+	@printf "Libft compiled"
 
 $(NAME):fclean
-	gcc $(FLAGS) -c $(SRC) $(SRC2) $(HEADER)
-	ar rc $(NAME) $(OBJ) $(OBJ2)
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRC) $(SRC2) $(HEADER)
+	@ar rc $(NAME) $(OBJ) $(OBJ2)
+	@ranlib $(NAME)
 
 bonus:	fclean
-	gcc $(FLAGS) -c $(SRC) $(SRC2) $(SRC3) $(HEADER)
-	ar rc $(NAME) $(OBJ) $(OBJ2) $(OBJ3)
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRC) $(SRC2) $(SRC3) $(HEADER)
+	@ar rc $(NAME) $(OBJ) $(OBJ2) $(OBJ3)
+	@ranlib $(NAME)
 
 clean:
-	/bin/rm -f *.o *.gch
+	@/bin/rm -f *.o *.gch
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re:	fclean all

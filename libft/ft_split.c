@@ -6,13 +6,13 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 13:31:36 by pnielly           #+#    #+#             */
-/*   Updated: 2019/10/24 13:16:51 by pnielly          ###   ########.fr       */
+/*   Updated: 2021/04/18 20:49:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			count_box(char const *str, char c)
+int	count_box(char const *str, char c)
 {
 	int	i;
 	int	k;
@@ -33,7 +33,7 @@ int			count_box(char const *str, char c)
 	return (count);
 }
 
-int			size_box(char const *str, int position, char c)
+int	size_box(char const *str, int position, char c)
 {
 	int	letter;
 	int	i;
@@ -54,7 +54,7 @@ int			size_box(char const *str, int position, char c)
 	return (letter);
 }
 
-int			borne_box(char const *str, int position, char c)
+int	borne_box(char const *str, int position, char c)
 {
 	int	i;
 	int	k;
@@ -75,31 +75,29 @@ int			borne_box(char const *str, int position, char c)
 	return (i - k);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 	int		position;
 	int		letter;
 	int		i;
 
-	if (!s || !(tab = (char**)malloc(sizeof(char*) * ((count_box(s, c) + 1)))))
+	tab = (char **)malloc(sizeof(char *) * ((count_box(s, c) + 1)));
+	if (!s || !tab)
 		return (NULL);
 	position = -1;
 	while (++position < count_box(s, c))
 	{
-		if (!(tab[position] = (char*)malloc(sizeof(char)
-						* (size_box(s, position, c) + 1))))
+		tab[position] = (char *)malloc(sizeof(char)
+				* (size_box(s, position, c) + 1));
+		if (!tab[position])
 			return (NULL);
 		letter = 0;
 		i = borne_box(s, position, c);
 		while (s[i] != c && s[i] != '\0')
-		{
-			tab[position][letter] = (char)s[i];
-			letter++;
-			i++;
-		}
+			tab[position][letter++] = (char)s[i++];
 		tab[position][letter] = '\0';
 	}
 	tab[position] = NULL;
-	return ((char**)tab);
+	return ((char **)tab);
 }

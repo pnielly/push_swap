@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 09:52:25 by pnielly           #+#    #+#             */
-/*   Updated: 2019/10/23 16:11:48 by pnielly          ###   ########.fr       */
+/*   Updated: 2021/04/18 20:47:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (i)
 	{
 		if (s[i] == c)
-			return ((char*)s + i);
+			return ((char *)s + i);
 		i--;
 	}
 	return (NULL);

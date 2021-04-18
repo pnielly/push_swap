@@ -6,13 +6,13 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 18:29:52 by pnielly           #+#    #+#             */
-/*   Updated: 2019/10/24 12:43:43 by pnielly          ###   ########.fr       */
+/*   Updated: 2021/04/18 20:26:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_len(int n)
+int	ft_len(int n)
 {
 	int		i;
 	int		m;
@@ -31,7 +31,7 @@ int			ft_len(int n)
 	return (i);
 }
 
-char		*ft_build_str(int n, char *str, int len)
+char	*ft_build_str(int n, char *str, int len)
 {
 	long	v;
 	int		k;
@@ -59,13 +59,14 @@ char		*ft_build_str(int n, char *str, int len)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
 
 	len = ft_len(n);
-	if (!(str = malloc(len + 1)))
+	str = malloc(len + 1);
+	if (!str)
 		return (0);
 	return (ft_build_str(n, str, len));
 }

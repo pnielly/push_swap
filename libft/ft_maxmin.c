@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 16:34:50 by user42            #+#    #+#             */
-/*   Updated: 2021/04/05 16:36:57 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 20:30:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 int	ft_max(int a, int b)
 {
-	return (a > b ? a : b);
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 int	ft_min(int a, int b)
 {
-	return (a > b ? b : a);
+	if (a > b)
+		return (b);
+	return (a);
 }

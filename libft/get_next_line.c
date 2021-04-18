@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 17:28:47 by pnielly           #+#    #+#             */
-/*   Updated: 2021/04/05 11:44:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 20:24:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #define BUFFER_SIZE 50
 
-char			*ft_substr(char const *s, unsigned long start, size_t len)
+char	*ft_substr(char const *s, unsigned long start, size_t len)
 {
 	char			*dest;
 	unsigned long	i;
@@ -22,7 +22,8 @@ char			*ft_substr(char const *s, unsigned long start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (!(dest = malloc(len + 1)))
+	dest = malloc(len + 1);
+	if (!dest)
 		return (0);
 	if (start > ft_strlen(s))
 	{
@@ -41,7 +42,7 @@ char			*ft_substr(char const *s, unsigned long start, size_t len)
 	return (dest);
 }
 
-int				endfile_or_error(char *curr, char **line, int fd)
+int	endfile_or_error(char *curr, char **line, int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
 
@@ -59,7 +60,7 @@ int				endfile_or_error(char *curr, char **line, int fd)
 	return (-1);
 }
 
-char			*clean_stock(char *stock)
+char	*clean_stock(char *stock)
 {
 	stock = ft_strdup("");
 	free(stock);
@@ -67,7 +68,7 @@ char			*clean_stock(char *stock)
 	return (stock);
 }
 
-char			*get_curr(char *stock, int fd)
+char	*get_curr(char *stock, int fd)
 {
 	long		ret;
 	char		buf[BUFFER_SIZE + 1];
@@ -76,7 +77,8 @@ char			*get_curr(char *stock, int fd)
 	ret = 1;
 	while (!(ft_strnstr(stock, "\n", ft_strlen(stock))) && ret)
 	{
-		if ((ret = read(fd, buf, BUFFER_SIZE)) == -1 || fd < 0)
+		ret = read(fd, buf, BUFFER_SIZE);
+		if (ret == -1 || fd < 0)
 			return (NULL);
 		if (!ret)
 			break ;
@@ -88,7 +90,7 @@ char			*get_curr(char *stock, int fd)
 	return (stock);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		*stock = NULL;
 	char			*curr;

@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:30:51 by pnielly           #+#    #+#             */
-/*   Updated: 2019/10/23 17:07:17 by pnielly          ###   ########.fr       */
+/*   Updated: 2021/04/18 20:36:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_set(char const c, char const *set)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;
 	int		i;
@@ -38,7 +38,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	i--;
 	while (ft_set(s1[i], set) && i > -1)
 		i--;
-	if (!(dest = malloc(sizeof(*s1) * (i + 2))))
+	dest = malloc(sizeof(*s1) * (i + 2));
+	if (!dest)
 		return (0);
 	j = -1;
 	while (++j <= i)

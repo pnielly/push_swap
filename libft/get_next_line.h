@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 12:21:26 by pnielly           #+#    #+#             */
-/*   Updated: 2019/11/09 10:05:33 by pnielly          ###   ########.fr       */
+/*   Updated: 2021/04/18 20:46:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void				ft_putendl_fd(char *s, int fd);
 size_t				ft_strlen(const char *s);
 char				*ft_strjoin(char *s1, char const *s2);
 char				*ft_strnstr(const char *haystack,
-		const char *needle, size_t len);
+						const char *needle, size_t len);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

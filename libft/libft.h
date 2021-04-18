@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 12:47:03 by pnielly           #+#    #+#             */
-/*   Updated: 2021/04/14 22:28:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 20:34:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -34,7 +34,7 @@ int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 int					get_next_line(int fd, char **line);
 int					ft_atoi(const char *str);
-long					ft_atoi_long(const char *str);
+long				ft_atoi_long(const char *str);
 void				*ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 int					ft_isalnum(int c);
@@ -87,8 +87,8 @@ void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst,
-					void *(*f)(void *), void (*del)(void *));
+t_list				*ft_lstmap(t_list *lst, \
+						void *(*f)(void *), void (*del)(void *));
 void				ft_lstswap(t_list *a, t_list *b);
 
 #endif
