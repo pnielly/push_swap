@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:25:43 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 23:13:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 23:22:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-int		exec_cmd(t_list *instr, t_list **a_stack, t_list **b);
+int		exec_cmd(t_list *instr, t_list **a_stack, t_list **b, int verb);
 void	ft_display(t_list *a, t_list *b);
 void	print_lst(t_list *pr);
 int		ft_is_solved(t_list *a, int print);

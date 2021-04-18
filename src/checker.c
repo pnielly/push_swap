@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:46:31 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 23:14:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 23:29:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ int	main(int ac, char **av)
 
 	if (ft_check_for_error(ac, av))
 		return (0);
-	a_stack = ft_lstnew(av[1]);
-	b_stack = ft_lstnew("b");
 	i = 1;
+	if (!ft_strcmp(av[i], "-v"))
+		i++;
+	a_stack = ft_lstnew(av[i]);
+	b_stack = ft_lstnew("b");
 	tmp = a_stack;
 	while (i < ac - 1)
 	{
@@ -69,6 +71,9 @@ int	main(int ac, char **av)
 	}
 	tmp->next = ft_lstnew("a");
 	instr = get_instr();
-	exec_cmd(instr, &a_stack, &b_stack);
+	if (!ft_strcmp(av[1], "-v"))
+		exec_cmd(instr, &a_stack, &b_stack, 1);
+	else
+		exec_cmd(instr, &a_stack, &b_stack, 0);
 	return (0);
 }

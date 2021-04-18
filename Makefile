@@ -6,7 +6,7 @@
 #    By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 17:48:57 by user42            #+#    #+#              #
-#    Updated: 2021/04/18 20:06:41 by user42           ###   ########.fr        #
+#    Updated: 2021/04/18 23:45:16 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,22 +28,30 @@ SRC_PS= $(addprefix $(SRC_PATH)/,$(SRCS)) $(SRC_PATH)/push_swap.c
 OBJ_C=$(SRCS:.c=.o) checker.o
 OBJ_PS=$(SRCS:.c=.o) push_swap.o
 
+# ---------- Colors
+BLACK:="\033[1;30m"
+RED:="\033[1;31m"
+GREEN:="\033[1;32m"
+PURPLE:="\033[1;35m"
+CYAN:="\033[1;36m"
+WHITE:="\033[1;37m"
+EOC:="\033[0;0m"
 
 # ---------- Rules
 
 all: $(NAME_C) $(NAME_PS)
-	@printf "Checker compiled\n"
-	@printf "Push_swap compiled\n"
+	@printf $(GREEN)" -------------- Checker compiled   ----------------\n"
+	@printf " -------------- Push_swap compiled ----------------\n"$(EOC)
 	@mkdir obj
 	@mv *.o obj
 
 $(NAME_C): libft_compile
-	@printf "Compiling $@\n"
+	@printf $(CYAN)" -------------- Compiling $@ -----------------\n"$(EOC)
 	@$(CC) $(FLAGS) -c $(SRC_C) $(INC) -L $(LIBFT)
 	@$(CC) $(FLAGS) $(OBJ_C) $(LIBFT) -o ${NAME_C}
 
 $(NAME_PS): libft_compile
-	@printf "Compiling $@\n"
+	@printf $(CYAN)" -------------- Compiling $@ ---------------\n"$(EOC)
 	@$(CC) $(FLAGS) -c $(SRC_PS) $(INC) -L $(LIBFT)
 	@$(CC) $(FLAGS) $(OBJ_PS) $(LIBFT) -o ${NAME_PS}
 
@@ -53,12 +61,12 @@ libft_compile:
 clean:
 	@make clean -C libft/ --silent
 	@rm -rf obj *.gch
-	@printf "Object files removed\n"
+	@printf $(RED)" -------------- Object files removed --------------\n"$(EOC)
 
 fclean:	clean
 	@make fclean -C libft/ --silent
 	@rm -f $(NAME_C) $(NAME_PS)
-	@printf "Executable files removed\n"
+	@printf $(RED)" -------------- Executable files removed ----------\n"$(EOC)
 
 re: fclean all
 

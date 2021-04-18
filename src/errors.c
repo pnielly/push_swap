@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:09:08 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 21:24:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 23:18:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_check_for_error(int ac, char **av)
 		return (1);
 	while (--ac)
 	{
-		if (!ft_isnum(av[ac]))
+		if (!ft_isnum(av[ac]) && !(ac == 1 && !ft_strcmp(av[ac], "-v")))
 			return (ft_error("Wrong input ! Only digits allowed : ", av[ac]));
 		if (ft_atoi_long((const char *)av[ac]) > 2147483647
 			|| ft_atoi_long((const char *)av[ac]) < -2147483648)
