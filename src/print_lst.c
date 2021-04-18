@@ -6,12 +6,17 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 15:36:26 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 20:12:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 23:59:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
+
+/*
+** Note : these 2 functions helped to the elaboration
+** of the program, but are not used in the final product.
+*/
 
 void	ft_lst_size(t_list *a, t_list *b)
 {
