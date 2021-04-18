@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:46:31 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 23:29:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 23:50:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,18 @@ int	main(int ac, char **av)
 	i = 1;
 	if (!ft_strcmp(av[i], "-v"))
 		i++;
-	a_stack = ft_lstnew(av[i]);
+	a_stack = ft_lstnew(av[i--]);
 	b_stack = ft_lstnew("b");
 	tmp = a_stack;
-	while (i < ac - 1)
+	while (++i < ac - 1)
 	{
 		tmp->next = ft_lstnew(av[i + 1]);
 		tmp = tmp->next;
-		i++;
 	}
 	tmp->next = ft_lstnew("a");
 	instr = get_instr();
 	if (!ft_strcmp(av[1], "-v"))
-		exec_cmd(instr, &a_stack, &b_stack, 1);
+		return (exec_cmd(instr, &a_stack, &b_stack, 1));
 	else
-		exec_cmd(instr, &a_stack, &b_stack, 0);
-	return (0);
+		return (exec_cmd(instr, &a_stack, &b_stack, 0));
 }
