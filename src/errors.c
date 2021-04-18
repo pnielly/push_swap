@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:09:08 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 20:11:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 21:24:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	ft_clear(t_list **a)
 int	ft_error(char *str, char *pb)
 {
 	ft_putstr_fd("Error\n", 2);
+	ft_putstr(str);
+	ft_putstr(pb);
 	(void)str;
 	(void)pb;
 	return (1);

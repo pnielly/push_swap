@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:46:31 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 19:50:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 23:14:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_list	*get_instr(void)
 	while (get_next_line(0, &line))
 	{
 		tmp->next = ft_lstnew(line);
-		ft_putstr_endl(line);
 		tmp = tmp->next;
 	}
 	tmp = instr;

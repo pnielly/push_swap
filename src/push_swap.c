@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 21:03:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/18 22:49:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ void	handle_rotate(t_list **a, t_list **b, int min)
 		rra(a, b, 1);
 }
 
+/*
+** Strategy : split the series in two stacks :
+** stack a shelters the 50% biggest numbers
+** stack b shelters the 50% smallest numbers
+** --> this way we optimize the sorting by using rrr and rr
+*/
 void	elaborate(t_list **a, t_list **b)
 {
 	int		min;
@@ -75,7 +81,7 @@ void	elaborate(t_list **a, t_list **b)
 	ft_lstcopy(a, &tmp);
 	min = find_n_min(tmp, middle);
 	while (!(ft_is_solved(*a, 0) && b_is_solved(*b, *a)
-		&& ft_atoi((*a)->content) > ft_atoi((*b)->content)))
+			&& (ft_atoi((*a)->content) > ft_atoi((*b)->content))))
 	{
 		while (ft_atoi((*a)->content) <= min)
 			pb(a, b, 1);
