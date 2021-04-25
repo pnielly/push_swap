@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/20 20:40:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/25 22:34:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	b_is_solved(t_list *b, t_list *a)
 			return (0);
 		tmp = tmp->next;
 	}
-	if (ft_lstsize(b) <= 2 && !ft_is_solved(a, 0))
-		return (0);
+//	if (ft_lstsize(b) <= 2 && !ft_is_solved(a, 0))
+//		return (0);
+	(void)a;
 	return (1);
 }
 
@@ -37,6 +38,8 @@ int	ft_position(t_list *a, int min)
 	int	i;
 
 	i = 1;
+	if (ft_lstsize(a) <= 1)
+		return (0);
 	while (a && ft_atoi(a->content) != min)
 	{
 		i++;
@@ -86,13 +89,38 @@ int	find_n_min(t_list *a, int n)
 	int		min;
 	t_list	*tmp;
 
-	tmp = a;
+	ft_lstcopy(&a, &tmp);
 	while (--n > 0)
 	{
 		min = find_min(tmp);
 		ft_lst_rm_one(&tmp, ft_position(tmp, min));
+//		ft_display(a, tmp);
+//		printf("size of tmp = %d et min = %d\n", ft_lstsize(tmp), find_min(tmp));
 	}
-	return (find_min(tmp));
+	min = find_min(tmp);
+	ft_clear(&tmp);
+	return (min);
+}
+
+/*
+ ** find the n-th biggest element of the list
+ */
+int	find_n_max(t_list *a, int n)
+{
+	int		max;
+	t_list	*tmp;
+
+	ft_lstcopy(&a, &tmp);
+	while (--n > 0)
+	{
+		max = find_max(tmp);
+		ft_lst_rm_one(&tmp, ft_position(tmp, max));
+//		ft_display(a, tmp);
+//		printf("size of tmp = %d et min = %d\n", ft_lstsize(tmp), find_min(tmp));
+	}
+	max = find_max(tmp);
+	ft_clear(&tmp);
+	return (max);
 }
 
 /*

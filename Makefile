@@ -6,7 +6,7 @@
 #    By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 17:48:57 by user42            #+#    #+#              #
-#    Updated: 2021/04/20 18:35:51 by user42           ###   ########.fr        #
+#    Updated: 2021/04/25 15:32:38 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FLAGS=-Wall -Wextra -Werror
 # ---------- SRCS, OBJS and INC
 INC=-I includes
 SRC_PATH=src
-SRCS= builtins.c reverse_rotate.c errors.c rotate.c print_lst.c exec_cmd.c push.c swap.c display_stacks.c elaborate_utils.c elaborate_utils_2.c elab.c
+SRCS= builtins.c reverse_rotate.c errors.c rotate.c print_lst.c exec_cmd.c push.c swap.c display_stacks.c elaborate_utils.c elaborate_utils_2.c elaborate_utils_3.c elab_small.c elab_big.c
 SRC_C= $(addprefix $(SRC_PATH)/,$(SRCS)) $(SRC_PATH)/checker.c
 SRC_PS= $(addprefix $(SRC_PATH)/,$(SRCS)) $(SRC_PATH)/push_swap.c
 OBJ_C=$(SRCS:.c=.o) checker.o
