@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:25:43 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 23:22:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/20 20:54:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+void	elab_3(t_list **a, t_list **b);
+void	elab_11(t_list **a, t_list **b);
+void	elab_101(t_list **a, t_list **b);
+void	elab_500(t_list **a, t_list **b);
 int		exec_cmd(t_list *instr, t_list **a_stack, t_list **b, int verb);
 void	ft_display(t_list *a, t_list *b);
 void	print_lst(t_list *pr);
@@ -35,11 +39,18 @@ void	ft_clear(t_list **a);
 ** Utils for elaborate (exec_cmd)
 */
 
-int		b_is_solved(t_list *b, t_list *a);
+int		find_top_next(t_list *a, int thr);
+int		find_bot_next(t_list *a, int thr);
+int		ft_position(t_list *a, int min);
+int		find_floor(t_list *a, int next);
+int		b_solved(t_list *b);
 int		ft_min_position(t_list *a, int min);
 int		find_min(t_list *a);
+int		find_max(t_list *a);
 int		find_n_min(t_list *a, int n);
 char	get_dist_min(t_list *a, int min);
+int		ft_find_next(t_list *a, int min);
+int		ft_last_elem_value(t_list *a);
 
 /*
 ** Functions pointers

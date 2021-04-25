@@ -6,7 +6,7 @@
 /*   By: pnielly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 12:47:03 by pnielly           #+#    #+#             */
-/*   Updated: 2021/04/18 20:34:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/20 18:20:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_abs(int a);
 void				ft_lstcopy(t_list **a, t_list **b);
 void				ft_lst_rm_one(t_list **a, int position);
 int					ft_has_duplicates(char *s);

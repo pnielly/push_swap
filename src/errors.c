@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:09:08 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 23:18:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/19 21:55:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	ft_clear(t_list **a)
 int	ft_error(char *str, char *pb)
 {
 	ft_putstr_fd("Error\n", 2);
-	ft_putstr(str);
-	ft_putstr(pb);
 	(void)str;
 	(void)pb;
 	return (1);
@@ -71,6 +69,8 @@ int	ft_is_solved(t_list *a, int print)
 	int	prev;
 	int	suiv;
 
+	if (!ft_strcmp(a->content, "a"))
+		return (1);
 	prev = ft_atoi(a->content);
 	while (ft_strcmp(a->next->content, "a"))
 	{

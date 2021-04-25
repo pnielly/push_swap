@@ -6,12 +6,16 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 19:42:16 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 19:42:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/20 18:27:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
+
+/*
+** how many rows in the table
+*/
 
 int	get_size_table(t_list *a, t_list *b)
 {
@@ -36,6 +40,9 @@ int	get_size_table(t_list *a, t_list *b)
 	return (ft_max(size_a, size_b));
 }
 
+/*
+** how large are the columns
+*/
 int	get_len_table(t_list *a, t_list *b)
 {
 	t_list	*tmp;

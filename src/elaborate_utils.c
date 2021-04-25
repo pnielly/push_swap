@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 20:01:55 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/20 20:40:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	b_is_solved(t_list *b, t_list *a)
 	return (1);
 }
 
-int	ft_min_position(t_list *a, int min)
+/*
+** Finds the position of the element with value min
+*/
+int	ft_position(t_list *a, int min)
 {
 	int	i;
 
@@ -45,23 +48,39 @@ int	ft_min_position(t_list *a, int min)
 int	find_min(t_list *a)
 {
 	int		min;
-	t_list	*tmp;
 
+//	printf("JE SUI DANS FIND MIN\n");
 	min = ft_atoi(a->content);
-	tmp = a;
-	while (a->next && ft_strcmp(a->next->content, "a"))
+	while (a->next->next)
 	{
 		a = a->next;
 		if (min > ft_atoi(a->content))
 			min = ft_atoi(a->content);
 	}
-	a = tmp;
+//	printf("JE SORDS DE  DANS FIND MIN\n");
 	return (min);
 }
 
+int	find_max(t_list *a)
+{
+	int		max;
+
+//	printf("JE SUI DANS FIND MIN\n");
+	max = ft_atoi(a->content);
+	while (a->next->next)
+	{
+		a = a->next;
+		if (max < ft_atoi(a->content))
+			max = ft_atoi(a->content);
+	}
+//	printf("JE SORDS DE  DANS FIND MIN\n");
+	return (max);
+}
+
+
 /*
-** find the n-th smallest element of the list
-*/
+ ** find the n-th smallest element of the list
+ */
 int	find_n_min(t_list *a, int n)
 {
 	int		min;
@@ -71,35 +90,36 @@ int	find_n_min(t_list *a, int n)
 	while (--n > 0)
 	{
 		min = find_min(tmp);
-		ft_lst_rm_one(&tmp, ft_min_position(tmp, min));
+		ft_lst_rm_one(&tmp, ft_position(tmp, min));
 	}
 	return (find_min(tmp));
 }
 
 /*
-** checks if the element with the value 'min'
-** is closer to the top ('deb') or to the end ('end')
-** --> helps decide if we will rotate or reverse_rotate
-*/
+ ** checks if the element with the value 'min'
+ ** is closer to the top ('deb') or to the end ('end')
+ ** --> helps decide if we will rotate or reverse_rotate
+ */
 char	get_dist_min(t_list *a, int min)
 {
 	int	deb;
 	int	end;
 
-	deb = 1;
-	while (ft_atoi(a->content) > min && a->next)
+	deb = 0;
+	end = 0;
+	if (ft_atoi(a->content) == min)
+		return ('n');
+	while (ft_atoi(a->content) != min && ft_strcmp(a->content, "a"))
 	{
 		a = a->next;
 		deb++;
 	}
-	end = 1;
-	while (a->next)
+	while (ft_strcmp(a->content, "a"))
 	{
 		a = a->next;
 		end++;
 	}
 	if (end > deb)
 		return ('d');
-	else
-		return ('e');
+	return ('e');
 }

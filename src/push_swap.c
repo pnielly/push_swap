@@ -6,95 +6,37 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/18 22:49:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/20 20:17:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-int	swap_needed(t_list *a, char stack)
+int	b_solved(t_list *b)
 {
-	int	bigger;
-
-	if (!ft_strcmp(a->content, "b") || !ft_strcmp(a->content, "a"))
-		return (0);
-	bigger = 0;
-	if (ft_atoi(a->content) > ft_atoi(a->next->content))
-		bigger = 1;
-	if (((stack == 'a' && bigger) || (stack == 'b' && !bigger)))
+	if (ft_lstsize(b) <= 2)
 		return (1);
-	return (0);
+	while (ft_strcmp(b->next->content, "b"))
+	{
+		if (ft_atoi(b->content) < ft_atoi(b->next->content))
+			return (0);
+		b = b->next;
+	}
+	return (1);
 }
 
-void	handle_swap(t_list **a, t_list **b)
-{
-	int	swap_a;
-	int	swap_b;
-
-	swap_a = swap_needed(*a, 'a');
-	swap_b = swap_needed(*b, 'b');
-	if (swap_a && swap_b)
-		ss(a, b, 1);
-	else if (swap_a && !swap_b)
-		sa(a, b, 1);
-	else if (!swap_a && swap_b)
-		sb(a, b, 1);
-	else
-		return ;
-}
-
-void	handle_rotate(t_list **a, t_list **b, int min)
-{
-	char	dist_min;
-	int		rot_b;
-
-	dist_min = get_dist_min(*a, min);
-	rot_b = 0;
-	if (ft_is_solved(*a, 0) && b_is_solved(*b, *a))
-		return ;
-	if (!b_is_solved(*b, *a))
-		rot_b = 1;
-	if (dist_min == 'd' && rot_b)
-		rr(a, b, 1);
-	else if (dist_min == 'd' && !rot_b)
-		ra(a, b, 1);
-	else if (dist_min == 'e' && rot_b)
-		rrr(a, b, 1);
-	else if (dist_min == 'e' && !rot_b)
-		rra(a, b, 1);
-}
-
-/*
-** Strategy : split the series in two stacks :
-** stack a shelters the 50% biggest numbers
-** stack b shelters the 50% smallest numbers
-** --> this way we optimize the sorting by using rrr and rr
-*/
 void	elaborate(t_list **a, t_list **b)
 {
-	int		min;
-	int		middle;
-	t_list	*tmp;
-
-	middle = ft_lstsize(*a) / 2;
-	ft_lstcopy(a, &tmp);
-	min = find_n_min(tmp, middle);
-	while (!(ft_is_solved(*a, 0) && b_is_solved(*b, *a)
-			&& (ft_atoi((*a)->content) > ft_atoi((*b)->content))))
-	{
-		while (ft_atoi((*a)->content) <= min)
-			pb(a, b, 1);
-		handle_swap(a, b);
-		while (ft_atoi((*a)->content) <= min)
-			pb(a, b, 1);
-		handle_rotate(a, b, min);
-	}
-	while (ft_lstsize(*b) > 1)
-		pa(a, b, 1);
-	ft_clear(a);
-	ft_clear(b);
-	ft_clear(&tmp);
+	if (ft_lstsize(*a) <= 4)
+		elab_3(a, b);
+	else if (ft_lstsize(*a) <= 11)
+		elab_11(a, b);
+/*	else if (ft_lstsize(*a) <= 101)
+		elab_100(a, b);
+	else
+		elab_500(a, b);*/
+	return ;
 }
 
 int	main(int ac, char **av)
