@@ -3,7 +3,7 @@ make re
 echo
 #echo "$>ARG=\"4\"; ./push_swap $ARG | wc -l"
 #ARG=" 1 2 94 5 683  284  3 4   34 33 584 392 43 293 59 399 40"; ./push_swap $ARG | wc -l
-ARG="  2 94 5 683  1 284  3 4   34 33 584 ";
+ARG=" 94 5 683  1 284  3 4   34 33 584 ";
 
 echo
 ./push_swap $ARG | wc -l

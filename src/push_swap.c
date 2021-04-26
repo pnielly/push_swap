@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/20 20:17:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/26 11:26:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ int	b_solved(t_list *b)
 
 void	elaborate(t_list **a, t_list **b)
 {
+//	printf("size is ==== %d\n", ft_lstsize(*a));
+//	return ;
 	if (ft_lstsize(*a) <= 4)
 		elab_3(a, b);
 	else if (ft_lstsize(*a) <= 11)
 		elab_11(a, b);
-/*	else if (ft_lstsize(*a) <= 101)
-		elab_100(a, b);
+	else if (ft_lstsize(*a) <= 101)
+		elab_101(a, b);
 	else
-		elab_500(a, b);*/
+		elab_500(a, b);
 	return ;
 }
 

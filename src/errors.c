@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:09:08 by user42            #+#    #+#             */
-/*   Updated: 2021/04/19 21:55:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/26 11:34:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_clear(t_list **a)
 	t_list	*curr;
 	t_list	*next;
 
+//	ft_putstr("CACAAAAAAAAA\n");
 	if (!a || !*a)
 		return ;
 	curr = *a;

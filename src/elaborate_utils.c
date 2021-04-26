@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:46:23 by user42            #+#    #+#             */
-/*   Updated: 2021/04/20 20:40:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/26 11:46:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	b_is_solved(t_list *b, t_list *a)
 			return (0);
 		tmp = tmp->next;
 	}
-	if (ft_lstsize(b) <= 2 && !ft_is_solved(a, 0))
-		return (0);
+//	if (ft_lstsize(b) <= 2 && !ft_is_solved(a, 0))
+//		return (0);
+	(void)a;
 	return (1);
 }
 
@@ -37,6 +38,8 @@ int	ft_position(t_list *a, int min)
 	int	i;
 
 	i = 1;
+	if (ft_lstsize(a) <= 1)
+		return (0);
 	while (a && ft_atoi(a->content) != min)
 	{
 		i++;
@@ -66,13 +69,17 @@ int	find_max(t_list *a)
 	int		max;
 
 //	printf("JE SUI DANS FIND MIN\n");
+//	ft_putstr("find max debut\n");
 	max = ft_atoi(a->content);
-	while (a->next->next)
+//	ft_putstr("find max if\n");
+	while (ft_strcmp(a->content, "a") && ft_strcmp(a->content, "b"))
 	{
+//	ft_putstr("find max boucle\n");
 		a = a->next;
 		if (max < ft_atoi(a->content))
 			max = ft_atoi(a->content);
 	}
+//	ft_putstr("find max fin\n");
 //	printf("JE SORDS DE  DANS FIND MIN\n");
 	return (max);
 }
@@ -86,13 +93,55 @@ int	find_n_min(t_list *a, int n)
 	int		min;
 	t_list	*tmp;
 
-	tmp = a;
+	if (n > ft_lstsize(a))
+		return (0);
+	ft_lstcopy(&a, &tmp);
 	while (--n > 0)
 	{
 		min = find_min(tmp);
 		ft_lst_rm_one(&tmp, ft_position(tmp, min));
+//		ft_display(a, tmp);
+//		printf("size of tmp = %d et min = %d\n", ft_lstsize(tmp), find_min(tmp));
 	}
-	return (find_min(tmp));
+	min = find_min(tmp);
+	ft_clear(&tmp);
+	return (min);
+}
+
+/*
+ ** find the n-th biggest element of the list
+ */
+int	find_n_max(t_list *a, int n)
+{
+	int		max;
+	t_list	*tmp;
+
+	if (n > ft_lstsize(a))
+		return (0);
+	ft_lstcopy(&a, &tmp);
+	while (--n > 0)
+	{
+//	ft_putstr("JOJOOOOOO n = ");
+//	ft_putstr_endl(ft_itoa(n));
+		max = find_max(tmp);
+		ft_lst_rm_one(&tmp, ft_position(tmp, max));
+//		ft_display(a, tmp);
+//		printf("size of tmp = %d et min = %d\n", ft_lstsize(tmp), find_min(tmp));
+	}
+//	ft_putstr("prout\n");
+	if (tmp)
+	{
+//	ft_putstr("tmp exist !\n");
+		max = find_max(tmp);
+	}
+	else
+	{
+//	ft_putstr("tmp exist PAS!\n");
+		max = 0;
+	}
+//	ft_putstr("lolo\n");
+	ft_clear(&tmp);
+	return (max);
 }
 
 /*

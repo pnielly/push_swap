@@ -6,7 +6,7 @@
 /*   By: user42 <pnielly@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 14:25:43 by user42            #+#    #+#             */
-/*   Updated: 2021/04/20 20:54:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/25 21:57:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # define BLTS 11
+# define BORNE_INF 2147483648
+# define BORNE_SUP 2147483647
 # include "../libft/libft.h"
 # include <stdio.h>
 
@@ -39,17 +41,20 @@ void	ft_clear(t_list **a);
 ** Utils for elaborate (exec_cmd)
 */
 
-int		find_top_next(t_list *a, int thr);
-int		find_bot_next(t_list *a, int thr);
+int		b_is_solved(t_list *b, t_list *a);
+int		find_top_next(t_list *a, int thr_inf, int thr_sup);
+int		find_bot_next(t_list *a, int thr_inf, int thr_sup);
 int		ft_position(t_list *a, int min);
-int		find_floor(t_list *a, int next);
+int		find_floor_b(t_list *b, int next);
+int		find_floor_a(t_list *a, int next);
 int		b_solved(t_list *b);
 int		ft_min_position(t_list *a, int min);
 int		find_min(t_list *a);
 int		find_max(t_list *a);
 int		find_n_min(t_list *a, int n);
+int		find_n_max(t_list *a, int n);
 char	get_dist_min(t_list *a, int min);
-int		ft_find_next(t_list *a, int min);
+int		ft_find_next(t_list *a, int min, int max);
 int		ft_last_elem_value(t_list *a);
 
 /*
