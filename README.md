@@ -16,6 +16,8 @@ Authorized moves:
 - rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.</br>
 - rrr : rra and rrb at the same time.</br>
 
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+
 ## Installation
 
 In the root of the repo, type:
