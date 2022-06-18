@@ -29,12 +29,12 @@ Once the binary is compiled, you can try the binary by typing:
 ```python
 ARG="4 67 3 87 23"; ./push_swap $ARG
 ```
-This will give you the movements to do to order the series of numbers in stack A.</br>
+This will give you the movements to do to order the series of numbers in stack A.</br></br>
 You can also type:
 ```python
 ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 ```
-This will give you the number of movements required.
+This will give you the number of movements required.</br></br>
 Finally you can use the checker that will check if the movements result in an ordered series of number:
 ```python$ARG
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
