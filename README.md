@@ -36,7 +36,7 @@ You can also type:
 ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
 ```
 This will give you the number of moves required.</br></br>
-Finally you can use the checker that will check if the movements result in an ordered series of number:
+Finally you can use the checker that will check if the moves result in an ordered series of number:
 ```python$ARG
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 ```
