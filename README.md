@@ -1,4 +1,5 @@
 # Push_swap
+
 Sorting algorithm using 2 stacks, A and B (B empty).
 The stack A contains a series of unordered numbers. The aim is to sort the numbers using the minimum movements possible.
 
@@ -39,3 +40,5 @@ Finally you can use the checker that will check if the movements result in an or
 ```python$ARG
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 ```
+## Subject
+[push_swap.pdf](https://github.com/pnielly/push_swap/files/8934139/push_swap.pdf)
